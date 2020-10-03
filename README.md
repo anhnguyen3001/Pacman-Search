@@ -28,3 +28,6 @@ Câu 7: FoodHeuristic:
 Câu 8: Suboptimal Search:
 - Định nghĩa goalState (của AnyFoodSearchProblem): xem vị trí hiện tại có chưa hạt đồ ăn không?
 - Hàm findPathToClosestDot: sử dụng lại thuật toán tìm kiếm bfs
+
+Autograder:
+<img src="./autograder python search 1.PNG"/>
