@@ -88,14 +88,15 @@ def depthFirstSearch(problem):
     """
     "*** YOUR CODE HERE ***"
     startState = problem.getStartState()
+    
+    if problem.isGoalState(startState):
+        return []
+    
     visited = []
 
     # Fringe contains: node, actions to get this node 
     fringe = util.Stack()
     fringe.push((startState, []))
-
-    if problem.isGoalState(startState):
-        return []
 
     while not fringe.isEmpty():
         curState, actions = fringe.pop()
@@ -116,12 +117,13 @@ def breadthFirstSearch(problem):
     """Search the shallowest nodes in the search tree first."""
     "*** YOUR CODE HERE ***"
     startState = problem.getStartState()
-    visited = []
-    fringe = util.Queue()
-    fringe.push((startState, []))
 
     if problem.isGoalState(startState):
         return []
+
+    visited = []
+    fringe = util.Queue()
+    fringe.push((startState, []))
 
     while not fringe.isEmpty():
         curState, actions = fringe.pop()
@@ -141,12 +143,13 @@ def uniformCostSearch(problem):
     """Search the node of least total cost first."""
     "*** YOUR CODE HERE ***"
     startState = problem.getStartState()
-    visited = []
-    fringe = util.PriorityQueue()
-    fringe.push((startState, [], 0), 0)
 
     if problem.isGoalState(startState):
         return []
+
+    visited = []
+    fringe = util.PriorityQueue()
+    fringe.push((startState, [], 0), 0)
 
     while not fringe.isEmpty():
         curState, actions, costs = fringe.pop()
@@ -174,12 +177,13 @@ def aStarSearch(problem, heuristic=nullHeuristic):
     """Search the node that has the lowest combined cost and heuristic first."""
     "*** YOUR CODE HERE ***"
     startState = problem.getStartState()
-    visited = []
-    fringe = util.PriorityQueue()
-    fringe.push((startState, [], 0), 0)
 
     if problem.isGoalState(startState):
         return []
+
+    visited = []
+    fringe = util.PriorityQueue()
+    fringe.push((startState, [], 0), 0)
 
     while not fringe.isEmpty():
         curState, actions, costs = fringe.pop()
