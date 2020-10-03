@@ -536,36 +536,9 @@ class ClosestDotSearchAgent(SearchAgent):
         problem = AnyFoodSearchProblem(gameState)
 
         "*** YOUR CODE HERE ***"
-        foodList = food.asList()
-        minDistance = float("inf")
-        closest_food = ()
-        actions = []
-        
-        # Find closet food
-        for food_position in foodList:
-            distance = mazeDistance(startPosition, food_position, gameState)
-            
-            if distance < minDistance:
-                minDistance = distance
-                closest_food = food_position
-        
-        # Find path to the closet food
-        while not closest_food == startPosition:
-            for action in [Directions.NORTH, Directions.SOUTH, Directions.EAST, Directions.WEST]:
-                x,y = startPosition
-                dx, dy = Actions.directionToVector(action)
-                nextx, nexty = int(x + dx), int(y + dy)
-                nextPosition = (nextx, nexty)
-                
-                if not walls[nextx][nexty]:
-                    distance = mazeDistance(nextPosition, closest_food, gameState)
-                    
-                    if distance < minDistance:
-                        minDistance = distance
-                        startPosition = nextPosition
-                        actions.append(action)
-                
-        return actions 
+        from search import breadthFirstSearch
+
+        return breadthFirstSearch(problem)
 
         util.raiseNotDefined()
 
@@ -603,13 +576,9 @@ class AnyFoodSearchProblem(PositionSearchProblem):
         x,y = state
 
         "*** YOUR CODE HERE ***"
-        food = self.food
+        food = self.food.asList()
         
-        for ele in food:
-            if 'T' in ele:
-                return True
-        
-        return False
+        return (x, y) in food
         util.raiseNotDefined()
 
 def mazeDistance(point1, point2, gameState):
