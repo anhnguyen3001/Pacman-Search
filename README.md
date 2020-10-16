@@ -1,7 +1,11 @@
 # Pacman-Search
 Câu 1: DepthFirstSearch:
 - Cấu trúc dữ liệu: Stack lưu (state, list actions đến state của node con từ node cha).
-- Cài đặt: Chạy vòng lặp hết Stack, lấy ra x,y,actions từ node cuối của Stack. Kiểm tra xem x,y có phải state đích. Nếu không, kiểm tra xem đã thăm chưa. Nếu chưa thăm thì thêm vào list vị trí đã thăm rồi push các node được phát triển từ node hiện tại.
+- Cài đặt: 
+  + Chạy vòng lặp hết Stack, lấy ra x,y,actions từ node cuối của Stack. 
+  + Kiểm tra xem x,y có phải state đích. Nếu không, kiểm tra xem đã thăm chưa. 
+  + Nếu chưa thăm thì thêm vào list vị trí đã thăm rồi push các node được phát triển từ node hiện tại.
+
 
 Câu 2: BreadthFirstSearch:
 - Tương tự DFS, ngoại trừ sử dụng Queue để lưu (state, list actions)
